@@ -7,9 +7,14 @@ export default function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
+  const [alertId, setAlertId] = useState(0);
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const dismissAlert = () => {
+    setAlert(null);
   };
 
   const handleSubmit = async (e) => {
@@ -18,6 +23,7 @@ export default function Login() {
 
     if (!form.email.trim() || !form.password.trim()) {
       setAlert({ type: 'error', msg: 'Please fill in all fields.' });
+      setAlertId(prev => prev + 1);
       return;
     }
 
@@ -37,7 +43,10 @@ export default function Login() {
         navigate('/fairs');
       }
     } catch (err) {
-      setAlert({ type: 'error', msg: err.message });
+      // Extract error message from API response or fallback
+      const errorMsg = err.message || 'Invalid email or password. Please try again.';
+      setAlert({ type: 'error', msg: errorMsg });
+      setAlertId(prev => prev + 1); // Force re-render of alert
     } finally {
       setLoading(false);
     }
@@ -58,11 +67,34 @@ export default function Login() {
 
         <div className="form-card-body">
           {alert && (
-            <div className={`alert alert-${alert.type}`}>
-              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ flexShrink: 0 }}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a1 1 0 00.89 1.5h18.58a1 1 0 00.89-1.5L13.71 3.86a2 2 0 00-3.42 0z" />
-              </svg>
-              {alert.msg}
+            <div className={`alert alert-${alert.type}`} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', flex: 1 }}>
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ flexShrink: 0, marginTop: '0.125rem' }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a1 1 0 00.89 1.5h18.58a1 1 0 00.89-1.5L13.71 3.86a2 2 0 00-3.42 0z" />
+                </svg>
+                <span>{alert.msg}</span>
+              </div>
+              <button
+                type="button"
+                onClick={dismissAlert}
+                className="alert-close"
+                aria-label="Dismiss alert"
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  padding: '0.25rem',
+                  cursor: 'pointer',
+                  color: 'currentColor',
+                  opacity: 0.7,
+                  transition: 'opacity 0.2s',
+                }}
+                onMouseEnter={(e) => (e.target.style.opacity = '1')}
+                onMouseLeave={(e) => (e.target.style.opacity = '0.7')}
+              >
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
             </div>
           )}
 

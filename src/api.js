@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: 'https://projectfsad-production.up.railway.app/api',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -36,10 +36,13 @@ api.interceptors.response.use(
       message = error.message;
     }
 
-    // Session expired - redirect to login
+    // Session expired - only redirect if user was already logged in
     if (error?.response?.status === 401) {
-      localStorage.removeItem('user');
-      window.location.href = '/login';
+      const user = JSON.parse(localStorage.getItem('user') || 'null');
+      if (user?.id) {
+        localStorage.removeItem('user');
+        window.location.href = '/login';
+      }
     }
 
     return Promise.reject(new Error(String(message)));

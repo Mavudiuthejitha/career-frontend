@@ -1,18 +1,94 @@
-# React + Vite
+<h1 align="center">🚀 Career Frontend</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?size=28&duration=2500&color=7F56D9&center=true&vCenter=true&width=700&lines=Modern+Job+Portal+Frontend;Live+on+Vercel+🚀;React+%2B+Vite+%2B+Framer+Motion;Clean+UI+%7C+Smooth+UX" />
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  <a href="https://career-frontend-silk.vercel.app/">
+    <img src="https://img.shields.io/badge/Live-Demo-success?style=for-the-badge&logo=vercel" />
+  </a>
+  <img src="https://img.shields.io/github/stars/Mavudiuthejitha/career-frontend?style=for-the-badge" />
+  <img src="https://img.shields.io/github/last-commit/Mavudiuthejitha/career-frontend?style=for-the-badge" />
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🌐 Live Demo
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+👉 https://career-frontend-silk.vercel.app/
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
+## 🧠 About
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+A **modern job portal frontend UI** built using React and Vite, focused on delivering:
+
+* Clean SaaS-style interface
+* Smooth animations and transitions
+* Responsive and scalable UI structure
+
+---
+
+## ✨ Features
+
+* 🔐 Login page with proper error handling
+* 💫 Smooth UI animations (Framer Motion)
+* 🎨 Modern gradient-based design
+* ⚡ Fast performance with Vite
+* 📱 Fully responsive layout
+
+---
+
+## ⚙️ Tech Stack
+
+* React
+* Vite
+* Tailwind CSS
+* Framer Motion
+* Axios
+
+---
+
+## 📁 Project Structure
+
+```bash id="f1a2b3"
+src/
+ ├── components/
+ ├── pages/
+ │    └── Login.jsx
+ ├── api.js
+ ├── App.jsx
+ └── main.jsx
+```
+
+---
+
+## 🚀 Run Locally
+
+```bash id="c4d5e6"
+git clone https://github.com/Mavudiuthejitha/career-frontend.git
+cd career-frontend
+npm install
+npm run dev
+```
+
+---
+
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Mavudiuthejitha&show_icons=true&theme=tokyonight" />
+</p>
+
+---
+
+## 📬 Contact
+
+* GitHub: https://github.com/Mavudiuthejitha
+
+---
+
+<p align="center">
+  Built with ❤️ using React + Vite
+</p>
